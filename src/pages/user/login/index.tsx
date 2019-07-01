@@ -45,10 +45,7 @@ export interface FromDataType {
     submitting: loading.effects['userLogin/login'],
   }),
 )
-class Login extends Component<
-  LoginProps,
-  LoginState
-> {
+class Login extends Component<LoginProps, LoginState> {
   loginForm: FormComponentProps['form'] | undefined | null = undefined;
 
   state: LoginState = {
