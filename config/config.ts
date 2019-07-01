@@ -98,11 +98,6 @@ export default {
       Routes: ['src/pages/Authorized'],
       authority: ['admin', 'user'],
       routes: [
-        // {
-        //   name: 'login',
-        //   path: '/user/login',
-        //   component: './user/login',
-        // },
         {
           path: '/',
           name: 'welcome',
