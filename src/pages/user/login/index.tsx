@@ -13,15 +13,18 @@ import styles from './style.less';
 
 const { Tab, UserName, Password, Mobile, Captcha, Submit } = LoginComponents;
 
+// 属性接口
 interface LoginProps {
   dispatch: Dispatch<any>;
   userLogin: StateType;
   submitting: boolean;
 }
+// 属性接口
 interface LoginState {
   type: string;
   autoLogin: boolean;
 }
+// 属性接口
 export interface FromDataType {
   userName: string;
   password: string;
@@ -45,20 +48,24 @@ export interface FromDataType {
     submitting: loading.effects['userLogin/login'],
   }),
 )
+// 继承泛型类，传入具体的类型实参
 class Login extends Component<LoginProps, LoginState> {
   loginForm: FormComponentProps['form'] | undefined | null = undefined;
 
+  // 指定类型约束state
   state: LoginState = {
     type: 'account',
     autoLogin: true,
   };
 
+  // 箭头函数
   changeAutoLogin = (e: CheckboxChangeEvent) => {
     this.setState({
       autoLogin: e.target.checked,
     });
   };
 
+  // 箭头函数
   handleSubmit = (err: any, values: FromDataType) => {
     const { type } = this.state;
     if (!err) {
@@ -73,10 +80,12 @@ class Login extends Component<LoginProps, LoginState> {
     }
   };
 
+  // 箭头函数
   onTabChange = (type: string) => {
     this.setState({ type });
   };
 
+  // 箭头函数
   onGetCaptcha = () =>
     new Promise((resolve, reject) => {
       if (!this.loginForm) {
@@ -97,6 +106,7 @@ class Login extends Component<LoginProps, LoginState> {
       });
     });
 
+  // 箭头函数
   renderMessage = (content: string) => (
     <Alert style={{ marginBottom: 24 }} message={content} type="error" showIcon />
   );

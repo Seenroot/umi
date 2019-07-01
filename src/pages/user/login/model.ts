@@ -4,6 +4,7 @@ import { routerRedux } from 'dva/router';
 import { fakeAccountLogin, getFakeCaptcha } from './service';
 import { getPageQuery, setAuthority } from './utils/utils';
 
+// 属性接口
 export interface StateType {
   status?: 'ok' | 'error';
   type?: string;

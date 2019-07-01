@@ -24,6 +24,7 @@ interface LoginState {
 }
 
 class Login extends Component<LoginProps, LoginState> {
+  // 统一导出组件
   public static Tab = LoginTab;
 
   public static Submit = LoginSubmit;
@@ -134,7 +135,7 @@ class Login extends Component<LoginProps, LoginState> {
         <div className={classNames(className, styles.login)}>
           <Form onSubmit={this.handleSubmit}>
             {tabs.length ? (
-              <React.Fragment>
+              <>
                 <Tabs
                   animated={false}
                   className={styles.tabs}
@@ -144,7 +145,7 @@ class Login extends Component<LoginProps, LoginState> {
                   {TabChildren}
                 </Tabs>
                 {otherChildren}
-              </React.Fragment>
+              </>
             ) : (
               children
             )}
@@ -159,4 +160,5 @@ class Login extends Component<LoginProps, LoginState> {
   Login[item] = LoginItem[item];
 });
 
+// 使用Form.create 包装的组件
 export default Form.create<LoginProps>()(Login);
