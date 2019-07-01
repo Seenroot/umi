@@ -1,13 +1,13 @@
-import { IConfig, IPlugin } from 'umi-types'
-import slash from 'slash2'
-import defaultSettings from './defaultSettings' // https://umijs.org/config/
+import { IConfig, IPlugin } from 'umi-types';
+import slash from 'slash2';
+import defaultSettings from './defaultSettings'; // https://umijs.org/config/
 
-import webpackPlugin from './plugin.config'
-const { pwa, primaryColor } = defaultSettings // preview.pro.ant.design only do not use in your production ;
+import webpackPlugin from './plugin.config';
+const { pwa, primaryColor } = defaultSettings; // preview.pro.ant.design only do not use in your production ;
 // preview.pro.ant.design 专用环境变量，请不要在你的项目中使用它。
 
-const { ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION } = process.env
-const isAntDesignProPreview = ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION === 'site'
+const { ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION } = process.env;
+const isAntDesignProPreview = ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION === 'site';
 const plugins: IPlugin[] = [
   [
     'umi-plugin-react',
@@ -52,7 +52,7 @@ const plugins: IPlugin[] = [
       autoAddMenu: true,
     },
   ],
-] // 针对 preview.pro.ant.design 的 GA 统计代码
+]; // 针对 preview.pro.ant.design 的 GA 统计代码
 
 if (isAntDesignProPreview) {
   plugins.push([
@@ -60,13 +60,13 @@ if (isAntDesignProPreview) {
     {
       code: 'UA-72788897-6',
     },
-  ])
+  ]);
   plugins.push([
     'umi-plugin-pro',
     {
       serverUrl: 'https://ant-design-pro.netlify.com',
     },
-  ])
+  ]);
 }
 
 export default {
@@ -82,8 +82,15 @@ export default {
   // umi routes: https://umijs.org/zh/guide/router.html
   routes: [
     {
-      path: '/user/login',
-      component: './user/login/index',
+      path: '/user',
+      component: '../layouts/UserLayout',
+      routes: [
+        {
+          name: 'login',
+          path: 'login',
+          component: './user/login',
+        },
+      ],
     },
     {
       path: '/',
@@ -128,7 +135,7 @@ export default {
     modules: true,
     getLocalIdent: (
       context: {
-        resourcePath: string
+        resourcePath: string;
       },
       _: string,
       localName: string,
@@ -138,21 +145,21 @@ export default {
         context.resourcePath.includes('ant.design.pro.less') ||
         context.resourcePath.includes('global.less')
       ) {
-        return localName
+        return localName;
       }
 
-      const match = context.resourcePath.match(/src(.*)/)
+      const match = context.resourcePath.match(/src(.*)/);
 
       if (match && match[1]) {
-        const antdProPath = match[1].replace('.less', '')
+        const antdProPath = match[1].replace('.less', '');
         const arr = slash(antdProPath)
           .split('/')
           .map((a: string) => a.replace(/([A-Z])/g, '-$1'))
-          .map((a: string) => a.toLowerCase())
-        return `antd-pro${arr.join('-')}-${localName}`.replace(/--/g, '-')
+          .map((a: string) => a.toLowerCase());
+        return `antd-pro${arr.join('-')}-${localName}`.replace(/--/g, '-');
       }
 
-      return localName
+      return localName;
     },
   },
   manifest: {
@@ -168,4 +175,4 @@ export default {
     },
   },
   */
-} as IConfig
+} as IConfig;
