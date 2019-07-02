@@ -1,8 +1,8 @@
-import request from 'umi-request';
+import request from '@/utils/request';
 import { FromDataType } from './index';
 
 export async function fakeAccountLogin(params: FromDataType) {
-  return request('/dev/login/account', {
+  return request('/login/account', {
     method: 'POST',
     data: params,
   });
