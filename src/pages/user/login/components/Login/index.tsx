@@ -131,10 +131,12 @@ class Login extends Component<LoginProps, LoginState> {
       },
     );
     return (
+      // 每个 Context 对象都会返回一个 Provider React 组件，它允许消费组件订阅 context 的变化。
       <LoginContext.Provider value={this.getContext()}>
         <div className={classNames(className, styles.login)}>
           <Form onSubmit={this.handleSubmit}>
             {tabs.length ? (
+              // 短语法
               <>
                 <Tabs
                   animated={false}
@@ -156,7 +158,9 @@ class Login extends Component<LoginProps, LoginState> {
   }
 }
 
+// 类型断言 keyof
 (Object.keys(LoginItem) as (keyof LoginItemType)[]).forEach(item => {
+  // 将组件统一挂载在 Login
   Login[item] = LoginItem[item];
 });
 

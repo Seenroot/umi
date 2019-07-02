@@ -173,11 +173,16 @@ class WrapFormItem extends Component<LoginItemProps, LoginItemState> {
   }
 }
 
+// 变量LoginItem 是 LoginItemType接口约束的可选值，初始值为{}
 const LoginItem: Partial<LoginItemType> = {};
 
+// 给 LoginItem 添加属性
 Object.keys(ItemMap).forEach(key => {
   const item = ItemMap[key];
   LoginItem[key] = (props: LoginItemProps) => (
+    // 函数式组件完成订阅 context
+    // 类组件使用 Class.contextType，订阅 context
+    // context 的值是 该组件最近的最近的 Provider 组件提供的 value 值
     <LoginContext.Consumer>
       {context => (
         <WrapFormItem
@@ -193,4 +198,12 @@ Object.keys(ItemMap).forEach(key => {
   );
 });
 
+// LoginItem.test = ''; // 类型“Partial<LoginItemType>”上不存在属性“test”。
+
+// console.log('LoginItem', LoginItem);
+
+// 将 LoginItem 类型断言 为 LoginItemType，前面定义松散是为了 便于添加 属性，最终导出时限制为 LoginItemType类型
 export default LoginItem as LoginItemType;
+
+// 此处 as 类型断言，并不是 重命名
+// 针对值进行类型转换，它没有运行时的影响，只是在编译阶段起作用。
