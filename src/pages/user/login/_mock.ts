@@ -3,7 +3,7 @@ function getFakeCaptcha(req: any, res: { json: (arg0: string) => void }) {
 }
 
 export default {
-  'POST  /api/login/account': (
+  'POST  /login/account': (
     req: { body: { password: any; userName: any; type: any } },
     res: {
       send: (data: any) => void;
@@ -32,5 +32,5 @@ export default {
       currentAuthority: 'guest',
     });
   },
-  'GET  /api/login/captcha': getFakeCaptcha,
+  'GET  /login/captcha': getFakeCaptcha,
 };
