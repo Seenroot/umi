@@ -32,6 +32,10 @@ export interface FromDataType {
   captcha: string;
 }
 
+/**
+ * 通过 namespace 从 全局State 中取出 模块State
+ * 使用属性接口进行约束
+ */
 @connect(
   ({
     userLogin,
