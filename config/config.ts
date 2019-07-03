@@ -71,6 +71,8 @@ if (isAntDesignProPreview) {
 
 export default {
   plugins,
+  history: 'hash',
+  outputPath: '../../springboot/src/main/resources/static/',
   block: {
     defaultGitUrl: 'https://github.com/ant-design/pro-blocks',
   },
