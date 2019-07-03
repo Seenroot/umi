@@ -72,7 +72,7 @@ if (isAntDesignProPreview) {
 export default {
   plugins,
   history: 'hash',
-  outputPath: '../../springboot/src/main/resources/static/',
+  outputPath: '../springboot/src/main/resources/static/', // 相对于根目录的路径
   block: {
     defaultGitUrl: 'https://github.com/ant-design/pro-blocks',
   },
