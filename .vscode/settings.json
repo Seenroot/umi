@@ -5,7 +5,7 @@
   // "javascript.validate.enable": false,
   "emmet.triggerExpansionOnTab": true,
   // Set the default
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "eslint.validate": [
     "javascript",
     "typescript",
