@@ -1,6 +1,6 @@
 export default function getBaseURL() {
   // 根据接口文档定
-  let baseURL = '';
+  let baseURL = '/api';
 
   // 开发时选择接口环境
   const proxyURL = '/dev';
@@ -9,7 +9,7 @@ export default function getBaseURL() {
 
   // 判定是否打包 判定本地和线上
   if (process.env.NODE_ENV !== 'production') {
-    baseURL = proxyURL;
+    baseURL = proxyURL + baseURL;
   }
   return baseURL;
 }
