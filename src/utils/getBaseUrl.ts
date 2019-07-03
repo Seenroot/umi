@@ -1,4 +1,4 @@
-export default function getBaseURL() {
+const getBaseURL = (): string => {
   // 根据接口文档定
   let baseURL = '/api';
 
@@ -12,4 +12,6 @@ export default function getBaseURL() {
     baseURL = proxyURL + baseURL;
   }
   return baseURL;
-}
+};
+
+export default getBaseURL;
