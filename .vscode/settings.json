@@ -1,0 +1,60 @@
+{
+  "editor.tabSize": 2,
+  "editor.fontSize": 17,
+  "files.autoSave": "off",
+  // "javascript.validate.enable": false,
+  "emmet.triggerExpansionOnTab": true,
+  // Set the default
+  "editor.formatOnSave": false,
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    {
+      "language": "html",
+      "autoFix": true
+    }
+  ],
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // "prettier.eslintIntegration": true,
+  "workbench.statusBar.visible": false,
+  "files.associations": {
+    "*.vue": "vue",
+    "*.wpy": "vue"
+  },
+  "window.zoomLevel": 0,
+  "extensions.ignoreRecommendations": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "workbench.activityBar.visible": true,
+  "workbench.sideBar.location": "right",
+  "editor.fontFamily": "Monaco, 'Courier New', monospace",
+  "terminal.integrated.fontFamily": "Meslo LG M for Powerline",
+  "terminal.integrated.shell.osx": "zsh",
+  "editor.fontWeight": "300",
+  "git.enableSmartCommit": true,
+  "explorer.confirmDelete": false,
+  "gitlens.views.search.files.layout": "tree",
+  "editor.minimap.enabled": false,
+  "typescript.check.npmIsInstalled": false,
+  "breadcrumbs.enabled": true,
+  "workbench.colorTheme": "Atom One Dark",
+  "search.followSymlinks": false
+}
