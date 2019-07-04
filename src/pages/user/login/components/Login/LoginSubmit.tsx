@@ -11,6 +11,12 @@ interface LoginSubmitProps extends ButtonProps {
   className?: string;
 }
 
+/**
+ * 设置了交叉类型，并赋值后
+ * 在 index.tsx 中 import LoginSubmit from './LoginSubmit';
+ * 引入后，鼠标移入到 LoginSubmit 上会显示 (alias) module LoginSubmit
+ * 此时在 children: React.ReactElement<LoginSubmit>[] 可以作为类型使用
+ */
 const LoginSubmit: React.SFC<LoginSubmitProps> & { typeName: string } = ({
   className,
   ...rest
