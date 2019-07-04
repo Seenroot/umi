@@ -25,11 +25,11 @@ interface LoginState {
 
 class Login extends Component<LoginProps, LoginState> {
   // 统一导出组件
-  public static Tab = LoginTab;
+  public static Tab = LoginTab; // 指定组件
 
   public static Submit = LoginSubmit;
 
-  public static UserName: React.FunctionComponent<LoginItemProps>;
+  public static UserName: React.FunctionComponent<LoginItemProps>; // 指定组件类型
 
   public static Password: React.FunctionComponent<LoginItemProps>;
 
@@ -66,6 +66,40 @@ class Login extends Component<LoginProps, LoginState> {
       },
     );
   };
+
+  // 下面的这个写法，返回值必须是严格符合接口约束才行
+  /*
+  getContext = (): LoginContextProps => {
+    const { form } = this.props;
+    const { tabs = [] } = this.state;
+    return {
+      tabUtil: {
+        addTab: id => {
+          this.setState({
+            tabs: [...tabs, id],
+          });
+        },
+        removeTab: id => {
+          this.setState({
+            tabs: tabs.filter(currentId => currentId !== id),
+          });
+        },
+      },
+      form: { ...form },
+      updateActive: activeItem => {
+        const { type = '', active = {} } = this.state;
+        if (active[type]) {
+          active[type].push(activeItem);
+        } else {
+          active[type] = [activeItem];
+        }
+        this.setState({
+          active,
+        });
+      },
+    };
+  };
+  */
 
   getContext: () => LoginContextProps = () => {
     const { form } = this.props;
@@ -160,7 +194,7 @@ class Login extends Component<LoginProps, LoginState> {
 
 // 类型断言 keyof
 (Object.keys(LoginItem) as (keyof LoginItemType)[]).forEach(item => {
-  // 将组件统一挂载在 Login
+  // 对前面仅定义类型为 React.FunctionComponent<LoginItemProps> 的组件进行赋值
   Login[item] = LoginItem[item];
 });
 

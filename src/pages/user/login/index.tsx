@@ -54,6 +54,7 @@ export interface FromDataType {
 )
 // 继承泛型类，传入具体的类型实参
 class Login extends Component<LoginProps, LoginState> {
+  // 联合类型，并赋初始值为 undefined
   loginForm: FormComponentProps['form'] | undefined | null = undefined;
 
   // 指定类型约束state

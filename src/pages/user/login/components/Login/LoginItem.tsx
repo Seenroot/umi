@@ -179,6 +179,7 @@ const LoginItem: Partial<LoginItemType> = {};
 // 给 LoginItem 添加属性
 Object.keys(ItemMap).forEach(key => {
   const item = ItemMap[key];
+  // 属性值是 函数式组件
   LoginItem[key] = (props: LoginItemProps) => (
     // 函数式组件完成订阅 context
     // 类组件使用 Class.contextType，订阅 context
@@ -202,7 +203,7 @@ Object.keys(ItemMap).forEach(key => {
 
 // console.log('LoginItem', LoginItem);
 
-// 将 LoginItem 类型断言 为 LoginItemType，前面定义松散是为了 便于添加 属性，最终导出时限制为 LoginItemType类型
+// 将 LoginItem 类型断言 为 LoginItemType，前面定义松散是为了 便于添加 属性，最终导出时限制为 LoginItemType 类型
 export default LoginItem as LoginItemType;
 
 // 此处 as 类型断言，并不是 重命名

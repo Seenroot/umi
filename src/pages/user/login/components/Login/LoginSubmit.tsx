@@ -11,7 +11,10 @@ interface LoginSubmitProps extends ButtonProps {
   className?: string;
 }
 
-const LoginSubmit: React.SFC<LoginSubmitProps> = ({ className, ...rest }) => {
+const LoginSubmit: React.SFC<LoginSubmitProps> & { typeName: string } = ({
+  className,
+  ...rest
+}) => {
   const clsString = classNames(styles.submit, className);
   return (
     <FormItem>
@@ -19,5 +22,7 @@ const LoginSubmit: React.SFC<LoginSubmitProps> = ({ className, ...rest }) => {
     </FormItem>
   );
 };
+
+LoginSubmit.typeName = 'submit';
 
 export default LoginSubmit;
