@@ -15,7 +15,7 @@
     "noUnusedLocals": true,
     "allowJs": true,
     "experimentalDecorators": true,
-    "strict": true,
+    "strict": true, // 开启严格模式
     "paths": {
       "@/*": ["./src/*"]
     }
