@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 // 首先，定义好初始状态 initialState
 
-const initialState = { clicksCount: 0 };
+const initialState = { clicksCount: 22 };
 
 /**
  * typeof initialState

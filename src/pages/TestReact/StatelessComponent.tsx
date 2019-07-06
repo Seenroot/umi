@@ -29,12 +29,27 @@ import React, { MouseEvent } from 'react';
 
 interface Props {
   onClick(e: MouseEvent<HTMLElement>): void;
+  // 可选属性 color 的类型其实是联合类型 undefined | string
+  color?: {
+    value: string;
+    depth: number;
+  };
 }
 
-const Button: React.SFC<Props> = ({ onClick: handleClick, children }) => (
-  <button onClick={handleClick} type="button">
+const Button: React.SFC<Props> = ({ onClick: handleClick, color, children }) => (
+  // TypeScript 抛出错误：对象可能为“未定义”。因为编译器并不知道 color 已经被定义在 Component.defaultProps 了。
+  // <button style={{ color: color.value }} onClick={handleClick} type="button">
+  <button style={{ color: color && color.value }} onClick={handleClick} type="button">
+    {/* {color} */}
     {children}
   </button>
 );
+
+Button.defaultProps = {
+  color: {
+    value: 'red',
+    depth: 8,
+  },
+};
 
 export default Button;

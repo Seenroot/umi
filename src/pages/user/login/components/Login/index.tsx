@@ -60,6 +60,10 @@ class Login extends Component<LoginProps, LoginState> {
       },
       () => {
         const { onTabChange } = this.props;
+        // 由于onTabChange在LoginProps中定义的是可选属性，所以该属性类型为 (key: string) => void | undefined
+        // 虽然在defaultProps中明确设置可选属性的值，
+        // 但是TypeScrip报错，编译器并不知道 onTabChange 已经被定义在 Component.defaultProps 了。
+        // 所以要加一个容错判断
         if (onTabChange) {
           onTabChange(type);
         }

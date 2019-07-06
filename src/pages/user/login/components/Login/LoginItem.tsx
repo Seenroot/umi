@@ -7,8 +7,12 @@ import ItemMap from './map';
 import LoginContext, { LoginContextProps } from './LoginContext';
 import styles from './index.less';
 
+// 此处Omit的实现中，第二个泛型的类型限制为第一个泛型的类型interface的键
+// Pick工具泛型 返回值 是一个 type
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
+// WrappedLoginItemProps约束为LoginItemProps中去除联合类型 'form' | 'type' | 'updateActive'
+// 好处就是不用再去定义一个类型，去单独维护
 export type WrappedLoginItemProps = Omit<LoginItemProps, 'form' | 'type' | 'updateActive'>;
 export type LoginItemKeyType = keyof typeof ItemMap;
 export interface LoginItemType {
@@ -18,6 +22,13 @@ export interface LoginItemType {
   Captcha: React.FC<WrappedLoginItemProps>;
 }
 
+// typescript提示：使用interface 代替 type
+// export type LoginItemType = {
+//   UserName: React.FC<WrappedLoginItemProps>;
+//   Password: React.FC<WrappedLoginItemProps>;
+//   Mobile: React.FC<WrappedLoginItemProps>;
+//   Captcha: React.FC<WrappedLoginItemProps>;
+// };
 export interface LoginItemProps {
   name?: string;
   rules?: any[];
