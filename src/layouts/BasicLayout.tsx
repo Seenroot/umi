@@ -69,7 +69,7 @@ const footerRender: BasicLayoutProps['footerRender'] = (_, defaultDom) => {
   );
 };
 
-const BasicLayout: React.FC<BasicLayoutProps> = props => {
+const BasicLayout: React.FunctionComponent<BasicLayoutProps> = props => {
   const { dispatch, children, settings } = props;
   /**
    * constructor

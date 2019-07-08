@@ -10,7 +10,7 @@ import styles from './index.less';
 interface SelectLangProps {
   className?: string;
 }
-const SelectLang: React.FC<SelectLangProps> = props => {
+const SelectLang: React.FunctionComponent<SelectLangProps> = props => {
   const { className } = props;
   const selectedLang = getLocale();
   const changeLang = ({ key }: ClickParam): void => setLocale(key, false);

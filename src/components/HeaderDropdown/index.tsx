@@ -12,7 +12,7 @@ export interface HeaderDropdownProps extends DropDownProps {
   placement?: 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topCenter' | 'topRight' | 'bottomCenter';
 }
 
-const HeaderDropdown: React.FC<HeaderDropdownProps> = ({ overlayClassName: cls, ...restProps }) => (
+const HeaderDropdown: React.FunctionComponent<HeaderDropdownProps> = ({ overlayClassName: cls, ...restProps }) => (
   <Dropdown overlayClassName={classNames(styles.container, cls)} {...restProps} />
 );
 

@@ -6,7 +6,7 @@ interface Props {
   title: string;
 }
 
-const ToggleableMenu: React.SFC<Props> = ({ children, title }) => (
+const ToggleableMenu: React.FunctionComponent<Props> = ({ children, title }) => (
   <RenderPropsComponent
     render={({ show, toggle }) => (
       // <>

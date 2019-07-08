@@ -30,7 +30,7 @@ const onBlockCopy = (label: string) => {
   }
 };
 
-const BlockCodeView: React.SFC<{
+const BlockCodeView: React.FunctionComponent<{
   url: string;
 }> = ({ url }) => {
   const blockUrl = `npx umi block add ${firstUpperCase(url)} --path=${url}`;

@@ -27,7 +27,7 @@ const getRouteAuthority = (path: string, routeData: Route[]) => {
   return authorities;
 };
 
-const AuthComponent: React.FC<AuthComponentProps> = ({
+const AuthComponent: React.FunctionComponent<AuthComponentProps> = ({
   children,
   route = {
     routes: [],

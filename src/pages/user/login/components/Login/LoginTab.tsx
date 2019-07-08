@@ -40,7 +40,7 @@ class LoginTab extends Component<LoginTabProps> {
 }
 
 // & 交叉类型
-const WrapContext: React.SFC<TabPaneProps> & {
+const WrapContext: React.FunctionComponent<TabPaneProps> & {
   typeName: string;
 } = props => (
   <LoginContext.Consumer>

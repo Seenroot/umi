@@ -36,7 +36,7 @@ interface Props {
   };
 }
 
-const Button: React.SFC<Props> = ({ onClick: handleClick, color, children }) => (
+const Button: React.FunctionComponent<Props> = ({ onClick: handleClick, color, children }) => (
   // TypeScript 抛出错误：对象可能为“未定义”。因为编译器并不知道 color 已经被定义在 Component.defaultProps 了。
   // <button style={{ color: color.value }} onClick={handleClick} type="button">
   <button style={{ color: color && color.value }} onClick={handleClick} type="button">

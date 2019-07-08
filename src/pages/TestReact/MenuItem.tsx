@@ -5,7 +5,7 @@ interface MenuItemProps {
   title: string;
 }
 
-const MenuItem: React.SFC<MenuItemProps & ToggleableComponentProps> = ({
+const MenuItem: React.FunctionComponent<MenuItemProps & ToggleableComponentProps> = ({
   title,
   toggle,
   show,

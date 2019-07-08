@@ -12,7 +12,7 @@ interface AuthorizedRoutePops {
   authority: IAuthorityType;
 }
 
-const AuthorizedRoute: React.SFC<AuthorizedRoutePops> = ({
+const AuthorizedRoute: React.FunctionComponent<AuthorizedRoutePops> = ({
   component: Component,
   render,
   authority,

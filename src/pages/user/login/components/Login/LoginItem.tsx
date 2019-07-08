@@ -16,18 +16,18 @@ type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 export type WrappedLoginItemProps = Omit<LoginItemProps, 'form' | 'type' | 'updateActive'>;
 export type LoginItemKeyType = keyof typeof ItemMap;
 export interface LoginItemType {
-  UserName: React.FC<WrappedLoginItemProps>;
-  Password: React.FC<WrappedLoginItemProps>;
-  Mobile: React.FC<WrappedLoginItemProps>;
-  Captcha: React.FC<WrappedLoginItemProps>;
+  UserName: React.FunctionComponent<WrappedLoginItemProps>;
+  Password: React.FunctionComponent<WrappedLoginItemProps>;
+  Mobile: React.FunctionComponent<WrappedLoginItemProps>;
+  Captcha: React.FunctionComponent<WrappedLoginItemProps>;
 }
 
 // typescript提示：使用interface 代替 type
 // export type LoginItemType = {
-//   UserName: React.FC<WrappedLoginItemProps>;
-//   Password: React.FC<WrappedLoginItemProps>;
-//   Mobile: React.FC<WrappedLoginItemProps>;
-//   Captcha: React.FC<WrappedLoginItemProps>;
+//   UserName: React.FunctionComponent<WrappedLoginItemProps>;
+//   Password: React.FunctionComponent<WrappedLoginItemProps>;
+//   Mobile: React.FunctionComponent<WrappedLoginItemProps>;
+//   Captcha: React.FunctionComponent<WrappedLoginItemProps>;
 // };
 export interface LoginItemProps {
   name?: string;

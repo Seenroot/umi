@@ -17,7 +17,7 @@ interface LoginSubmitProps extends ButtonProps {
  * 引入后，鼠标移入到 LoginSubmit 上会显示 (alias) module LoginSubmit
  * 此时在 children: React.ReactElement<LoginSubmit>[] 可以作为类型使用
  */
-const LoginSubmit: React.SFC<LoginSubmitProps> & { typeName: string } = ({
+const LoginSubmit: React.FunctionComponent<LoginSubmitProps> & { typeName: string } = ({
   className,
   ...rest
 }) => {

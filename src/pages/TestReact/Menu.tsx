@@ -12,7 +12,7 @@ import ToggleableMenu from './ToggleableMenu';
 // }
 
 // SFC的泛型实参可以省略，默认是 {}
-const Menu: React.SFC = () => (
+const Menu: React.FunctionComponent = () => (
   <>
     <ToggleableMenu title="First Menu">First Menu Content</ToggleableMenu>
     <ToggleableMenu title="Second Menu">Second Menu Content</ToggleableMenu>
