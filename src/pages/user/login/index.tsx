@@ -37,6 +37,7 @@ export interface FromDataType {
  * 使用属性接口进行约束
  */
 @connect(
+  // 箭头函数 => 对象解构 => 属性接口
   ({
     userLogin,
     loading,

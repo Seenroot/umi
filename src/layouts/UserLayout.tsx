@@ -19,14 +19,12 @@ const UserLayout: React.FunctionComponent<UserLayoutProps> = props => {
     route = {
       routes: [],
     },
-  } = props;
-  const { routes = [] } = route;
-  const {
     children,
     location = {
       pathname: '',
     },
   } = props;
+  const { routes = [] } = route;
   const { breadcrumb } = getMenuData(routes);
 
   return (
@@ -54,7 +52,17 @@ const UserLayout: React.FunctionComponent<UserLayoutProps> = props => {
           </div>
           {children}
         </div>
-        <DefaultFooter />
+        <DefaultFooter
+          copyright="Seenroot"
+          links={[
+            {
+              key: 'Seenroot',
+              title: '全栈整合',
+              href: 'https://github.com/Seenroot',
+              blankTarget: true,
+            },
+          ]}
+        />
       </div>
     </DocumentTitle>
   );
