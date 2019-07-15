@@ -62,9 +62,4 @@ export default {
       },
     ],
   },
-  TestComponent: {
-    props: {
-      size: 'large',
-    },
-  },
 };
